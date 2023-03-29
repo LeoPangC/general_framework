@@ -25,7 +25,7 @@ class AttentionLayer(nn.Module):
         key = self.to_key(x).view(b, n, h, -1)
         value = self.to_value(x).view(b, n, h, -1)
 
-        out, attn = self.attention(qury, key, value)
+        out, attn = self.attention(qury, key, value, mask)
         out = self.to_out(out)
         return out, attn
 
